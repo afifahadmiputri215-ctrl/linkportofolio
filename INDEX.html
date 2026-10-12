@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Afifah Admi Putri, S.IP</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --burgundy: #581825;
+            --burgundy-dark: #3b1018;
+            --cream: #FDFBF7;
+            --cream-card: #F4EFEB;
+            --accent-gold: #C5A880;
+            --text-main: #2C2224;
+            --text-muted: #6B5B5E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--cream);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        /* Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: var(--cream);
+            border-bottom: 1px solid rgba(88, 24, 37, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--burgundy);
+            letter-spacing: 0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--burgundy);
+        }
+
+        /* Hero Section with Photo */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 8%;
+            min-height: 80vh;
+            gap: 50px;
+            flex-wrap: wrap-reverse;
+        }
+
+        .hero-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-content h1 {
+            font-size: 2.75rem;
+            color: var(--burgundy);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        /* Profile Summary Box (Option 2 Style) */
+        .profile-summary {
+            background-color: var(--cream-card);
+            border-left: 4px solid var(--burgundy);
+            padding: 20px 25px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 30px;
+        }
+
+        .profile-summary h3 {
+            color: var(--burgundy);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .profile-summary ul {
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .profile-summary li {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .profile-summary li strong {
+            color: var(--text-main);
+        }
+
+        /* Hero Image Styling */
+        .hero-image-container {
+            flex: 0 0 280px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-photo {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--burgundy);
+            box-shadow: 0 10px 25px rgba(88, 24, 37, 0.15);
+            background-color: var(--cream-card); /* Placeholder color if image fails to load */
+        }
+
+        .btn {
+            background-color: var(--burgundy);
+            color: var(--cream);
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--burgundy-dark);
+        }
+
+        /* Sections */
+        section {
+            padding: 70px 8%;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--burgundy);
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        /* Projects Grid */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background-color: var(--cream-card);
+            border-radius: 10px;
+            padding: 30px;
+            border: 1px solid rgba(88, 24, 37, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(88, 24, 37, 0.08);
+        }
+
+        .project-card h3 {
+            color: var(--burgundy);
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .project-card a {
+            color: var(--burgundy);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .project-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--burgundy-dark);
+            color: var(--cream);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Mobile */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 40px 5%;
+            }
+            .profile-summary {
+                text-align: left;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            nav ul {
+                display: none; /* Sembunyikan menu ringkas di mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <div class="logo">Afifah Admi Putri, S.IP</div>
+        <nav>
+            <ul>
+                <li><a href="#about">Profil</a></li>
+                <li><a href="#projects">Portofolio & Karya</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>222222
+    </header>
+
+    <!-- Hero / Profile Section -->
+    <section class="hero" id="about">
+        <div class="hero-content">
+            <h1>Afifah Admi Putri, S.IP</h1>
+            <div class="hero-subtitle">Pustakawan & Pengelola Informasi</div>
+            <div class="contact-info">
+                📞 082288216106 &nbsp;|&nbsp; ✉️ afifahadmiputri215@gmail.com &nbsp;|&nbsp; 📍 Padang, Sumatera Barat
+            </div>
+
+            <!-- Ringkasan Profil (Format Poin) -->
+            <div class="profile-summary">
+                <h3>Ringkasan Profil</h3>
+                <ul>
+                    <li><strong>Pendidikan:</strong> S1 Ilmu Perpustakaan & Informasi Islam - UIN Imam Bonjol Padang (IPK 3,52).</li>
+                    <li><strong>Keahlian Utama:</strong> Pengelolaan Informasi, Kearsipan, Administrasi, Public Relations, & Pembuatan Website Sederhana.</li>
+                    <li><strong>Pengalaman:</strong> PKL Pustakawan di PONPES Sumatera Thawalib Parabek.</li>
+                    <li><strong>Karakteristik:</strong> Teliti, komunikatif, mampu bekerja mandiri maupun dalam tim.</li>
+                </ul>
+            </div>
+
+            <a href="#contact" class="btn">Hubungi Saya</a>
+        </div>
+
+        <!-- Bagian Foto Profil -->
+        <div class="hero-image-container">
+            <!-- Ganti 'foto-profil.jpg' dengan nama file foto Anda di folder VS Code -->
+            <img src="AFIFAH ADMI PUTRI.jpg" alt="Afifah Admi Putri, S.IP" class="profile-photo" onerror='https://via.placeholder.com/260x260/581825/FDFBF7?text=Foto+Afifah'">
+        </div>
+    </section>
+
+    <!-- Proyek & Pengalaman -->
+    <section id="projects">
+        <h2>Portofolio & Karya Ilmiah</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Pengelolaan Perpustakaan (PONPES Sumatera Thawalib Parabek Bukittinggi)</h3>
+                <p>Melaksanakan praktik kerja lapangan (PKL) dalam manajemen layanan perpustakaan, sirkulasi buku, serta penataan arsip berbasis digital.</p>
+                <a href="#">Lihat Detail &rarr;</a>
+            </div>
+            <div class="project-card">
+                <h3>Karya Ilmiah Terpublikasi</h3>
+                <p>Penulisan dan publikasi riset ilmiah di bidang ilmu perpustakaan, literasi informasi, dan pengelolaan arsip modern.</p>
+                <a href="#">Lihat Detail &rarr;</a>
+            </div>
+            <div class="project-card">
+                <h3>Website Portofolio Digital</h3>
+                <p>Perancangan dan pembuatan website portofolio pribadi menggunakan HTML & CSS dengan estetika antarmuka yang bersih.</p>
+                <a href="#">Lihat Detail &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="contact" style="text-align: center; background-color: var(--cream-card);">
+        <h2>Hubungi Saya</h2>
+        <p style="color: var(--text-muted); margin-bottom: 25px; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Saya siap berkontribusi secara profesional di bidang administrasi, kearsipan, dan pengelolaan informasi. Mari terhubung!
+        </p>
+        <a href="mailto:afifahadmiputri215@gmail.com" class="btn">Kirim Email</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Afifah Admi Putri, S.IP.</p>
+    </footer>
+
+</body>
+</html>
